@@ -1,13 +1,8 @@
 const http = require("http");
 const fs = require("fs");
-let args = require("minimist")(process.argv.slice(2), {
-  alias: {
-    p: "port",
-  },
-  default: {
-    port: 5000,
-  },
-});
+let args = require("minimist")(process.argv.slice(2), {});
+
+// console.log(args.port);
 
 let homeContent = "";
 let projectContent = "";
@@ -83,8 +78,4 @@ http
         break;
     }
   })
-  .listen(args.port, () =>
-    console.log(
-      `Server running on localhost:${args.port} press ctrl + c to stop the server`
-    )
-  );
+  .listen(args.port);
