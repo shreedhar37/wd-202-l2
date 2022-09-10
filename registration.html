@@ -16,7 +16,7 @@
       <main>
         <h2 style='margin-left:9rem;'>Survey Form</h2>
         <br />
-        <form id="user_form">
+        <form id="user_form" method="post">
           <label for="name"> Name : </label>
           <input
             type="text"
@@ -39,17 +39,26 @@
             required
             
           /><br /><br /><br>
+          <label for="password">Password : </label>
+          <input
+            type="password"
+            id="password"
+            name="password"
+            placeholder="********"
+            minlength="5"
+            maxlength="50"
+            required
+            
+          /><br /><br /><br>
           <label for="dob">Date of Birth : </label>
           <input type="date" id="dob" name="dob" min="1964-01-01" required />
           <br /><br /><br>
-          <label for="message">Message: </label>
-          <br><br>
-          <textarea id="message" name="message" rows="10" cols="65" minlength="5" maxlength="100" required></textarea>
-          <br><br>
+          
           <input type="checkbox" id="acceptTerms" name="checkbox"/>
           <label for="acceptTerms"><small>I have accepted the terms and condition</small></label>
           <br /><br />
-          <input class="btn-submit"  type="submit" value="Submit">
+          <button class="btn-submit"  type="submit">Submit</button>
+
         </form>
         <br><br>
         </div>
