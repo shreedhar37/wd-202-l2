@@ -53,9 +53,7 @@ fs.readFile("main.js", (err, mainScript) => {
 http
   .createServer((request, response) => {
     let url = request.url;
-    if (url.includes("/registration")) {
-      url = "/registration";
-    }
+    // console.log(url);
 
     response.writeHeader(200, { "Content-Type": "text/html" });
 
