@@ -25,8 +25,8 @@ if (userEntries) {
 const saveUserForm = (event) => {
   const name = document.getElementById("name").value;
   const email = document.getElementById("email").value;
+  const password = document.getElementById("password").value;
   const dob = document.getElementById("dob").value;
-  const message = document.getElementById("message").value;
   const acceptTermsAndConditions =
     document.getElementById("acceptTerms").checked;
 
@@ -38,9 +38,9 @@ const saveUserForm = (event) => {
   const userDetails = {
     name,
     email,
+    password,
     dob,
     acceptTnc,
-    message,
   };
   userEntries.push(userDetails);
   localStorage.setItem("user-entries", JSON.stringify(userEntries));
@@ -74,11 +74,10 @@ const displayEntries = () => {
       .map((entry) => {
         const name = `<td>${entry.name}</td>`;
         const email = `<td>${entry.email}</td>`;
+        const password = `<td> ${entry.password}</td>`;
         const dob = `<td>${entry.dob}</td>`;
         const acceptTerms = `<td>${entry.acceptTnc}</td>`;
-        const message = `<td>${entry.message}</td>`;
-        const action = `<td><button id='action' onclick='delete()'> Delete </button> </td>`;
-        const row = `<tr>${name} ${email}  ${dob} ${acceptTerms} ${message}</tr>`;
+        const row = `<tr>${name} ${email} ${password} ${dob} ${acceptTerms}</tr>`;
         return row;
       })
       .join("\n");
@@ -86,9 +85,10 @@ const displayEntries = () => {
   var table = `<table border='1' width='100%'><tr>
       <th>Name</th>
       <th>Email</th>
-      <th>Date of birth</th>
-      <th>Terms and Conditions</th>
-      <th>Message</th>
+      <th>Password</th>
+      <th>Dob</th>
+      <th>Accepted terms?</th>
+      
     </tr>${entries} </table>`;
   let details = document.getElementById("user-entries");
   details.innerHTML = table;
