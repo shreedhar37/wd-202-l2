@@ -20,6 +20,8 @@ textarea,
 
 .btn-submit {
   height: 30px;
+  width: 60px;
+  color: rgb(177, 236, 0);
   margin-left: 12rem;
   margin-top: 1rem;
 }
