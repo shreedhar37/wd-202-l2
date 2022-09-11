@@ -7,7 +7,7 @@ let args = require("minimist")(process.argv.slice(2), {});
 let homeContent = "";
 let projectContent = "";
 let registrationContent = "";
-let cssContent = "";
+// let cssContent = "";
 let mainScriptContent = "";
 
 let port;
@@ -32,12 +32,12 @@ fs.readFile("registration.html", (err, registration) => {
   registrationContent = registration;
 });
 
-fs.readFile("style.css", (err, css) => {
-  if (err) {
-    throw err;
-  }
-  cssContent = css;
-});
+// fs.readFile("style.css", (err, css) => {
+//   if (err) {
+//     throw err;
+//   }
+//   cssContent = css;
+// });
 
 fs.readFile("main.js", (err, mainScript) => {
   if (err) {
@@ -61,11 +61,11 @@ http
         response.write(registrationContent);
         response.end();
         break;
-      case "/style.css":
-        response.writeHeader(200, { "Content-Type": "text/css" });
-        response.write(cssContent);
-        response.end();
-        break;
+      // case "/style.css":
+      //   response.writeHeader(200, { "Content-Type": "text/css" });
+      //   response.write(cssContent);
+      //   response.end();
+      //   break;
 
       case "/main.js":
         response.writeHead(200, { "Content-Type": "text/script" });
